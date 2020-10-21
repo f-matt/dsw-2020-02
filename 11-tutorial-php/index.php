@@ -3,6 +3,13 @@
   <head>
     <title>Introdução à linguagem PHP</title>
     <meta charset="utf-8" />
+
+    <style>
+    .gray {
+      background-color: #eeeeee;
+    }
+    </style>
+
   </head>
 
   <body>
@@ -56,18 +63,68 @@
 
       // Verifica se o número é par ou ímpar
       function ex03() {
+        $x = 15;
 
-        $x = 10;
+        if ($x % 2 == 0) {
+          echo "<h2>O número $x é par.</h2>";
+        } else {
+          echo "<h2>O número $x é ímpar.</h2>";
+        }
+      }
 
-        // TODO: se $x é par, exibe "O número é par"
-        // Caso contrário, exibe "O número é ímpar"
+      // Estrutura de repetição while
+      function ex04() {
+        $x = 1;
+
+        while ($x <= 5) {
+          echo "O número é $x.<br>";
+          $x++;
+        }
+      }
+
+      // Estrutura de repetição while
+      function ex05() {
+        $x = 1;
+
+        echo "<ul>";
+        while ($x <= 10) {
+          if ($x % 2 == 0)
+            echo "<li>O número é $x.</li>";
+          else
+            echo "<li class='gray'>O número é $x.</li>";
+
+          $x++;
+        }
+        echo "</ul>";
 
       }
 
+      // Estrutura de repetição for
+      function ex06() {
+        for ($i = 0; $i < 10; ++$i) {
+          echo "O número é $i.<br>";
+        }
+      }
 
+      // Estrutura de repetição foreach
+      function ex07() {
+        $cores = array('vermelho', 'azul', 'verde', 'amarelo');
+
+        echo "<ol>";
+        foreach($cores as $cor) {
+          echo "<li>$cor</li>";
+        }
+        echo "</ol>";
+
+      }
 
       // ex01();
-      ex02();
+      // ex02();
+      // ex03();
+      // ex04();
+      // ex05();
+      // ex06();
+      ex07();
     ?>
 
   </body>
