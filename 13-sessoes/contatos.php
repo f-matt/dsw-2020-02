@@ -13,11 +13,13 @@ session_start();
     <h1>Exemplo: Lista de Contatos</h1>
 
     <?php
-      $c1 = array('nome' => 'João', 'email' => 'joao@mail.com');
-      $c2 = array('nome' => 'José', 'email' => 'jose@mail.com');
-      $c3 = array('nome' => 'Maria', 'email' => 'maria@mail.com');
+      if (!isset($_SESSION['contatos'])) {
+        $c1 = array('nome' => 'João', 'email' => 'joao@mail.com');
+        $c2 = array('nome' => 'José', 'email' => 'jose@mail.com');
+        $c3 = array('nome' => 'Maria', 'email' => 'maria@mail.com');
 
-      $contatos = array($c1, $c2, $c3);
+        $_SESSION['contatos'] = array($c1, $c2, $c3);
+      }
     ?>
 
 
@@ -28,7 +30,7 @@ session_start();
 
       $contato = array('nome' => $nome, 'email' => $email);
 
-      array_push($contatos, $contato);
+      array_push($_SESSION['contatos'], $contato);
     }
     ?>
 
@@ -52,7 +54,7 @@ session_start();
       <tbody>
 
     <?php
-      foreach ($contatos as $contato) {
+      foreach ($_SESSION['contatos'] as $contato) {
         echo "<tr><td>$contato[nome]</td><td>$contato[email]</td></tr>";
       }
     ?>
