@@ -28,6 +28,7 @@
 
         try {
           atualizaContato($id, $nome, $email);
+	  $contatoSelecionado = buscaPorId($id);
           echo "<script>alert('Contato atualizado com sucesso!');</script>";
         } catch (Exception $e) {
           echo "<script>alert('" . $e->getMessage() ."');</script>";

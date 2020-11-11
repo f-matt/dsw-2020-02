@@ -26,6 +26,7 @@
 
         try {
           removeContato($id);
+	  $contatoSelecionado = array('id' => '', 'nome' => '', 'email' => '');
           echo "<script>alert('Contato removido com sucesso!');</script>";
         } catch (Exception $e) {
           echo "<script>alert('" . $e->getMessage() ."');</script>";
